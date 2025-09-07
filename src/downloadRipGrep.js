@@ -55,6 +55,13 @@ const getTarget = () => {
         default:
           return 'i686-unknown-linux-musl.tar.gz'
       }
+    case 'android':
+      switch (arch) {
+        case 'arm64':
+          return 'aarch64-unknown-linux-gnu.tar.gz'
+        default:
+          throw new VError('Unknown arch on android: ' + arch)
+      }
     default:
       throw new VError('Unknown platform: ' + platform)
   }
